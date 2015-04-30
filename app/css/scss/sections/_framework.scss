@@ -1,0 +1,26 @@
+
+#slideToUnlock {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	background: #FF0000;
+	z-index: 999;
+	
+	.slideToUnlockLabel {
+		position: absolute;
+		text-align: center;
+		font-size: 24px;
+		top: 40%;
+		width: 100%;
+	}
+}
+
+#regularLabel {
+	position: absolute;
+	text-align: center;
+	font-size: 24px;
+	top: 40%;
+	width: 100%;
+}
