@@ -20,6 +20,7 @@ html {
 }
 
 body {
+    width: 100%;
     
     color: $primary_color;
     background: #000;
@@ -56,6 +57,11 @@ body {
     top: 0px;
     left: 0px;
     background: #00FF00;
+    border: solid 5px #FFF;
+}
+
+#slideToUnlock {
+    border: solid 5px #000;
 }
 
 @-ms-viewport { 

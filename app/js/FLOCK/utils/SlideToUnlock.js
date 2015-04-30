@@ -34,27 +34,29 @@
     function show(){
         console.log('show');
         this.visible = true;
-        this.body.removeClass('fill');
-        // this.elem.style.visibility = "visible";
+
+        this.body.css('overflow', 'scroll');
+        this.body.css('position', 'static');
+
         this.elem.style.display = "block";
     }
     
     function hide(){
         console.log('hide');
         this.visible = false; 
-        //this.body.addClass('fill');
-        this.body.css('height', (window.innerWidth>window.innerHeight)?window.screen.width:window.screen.height);
+
+        this.body.css('height', window.innerHeight);
+        this.body.css('overflow', 'hidden');
+        this.body.css('position', 'fixed');
         this.body[0].scrollTop = 0;
-
-        console.log(window.screen, window);
-
-        // this.elem.style.visibility = "hidden";  
+ 
         this.elem.style.display = "none";  
     }
     
     function resize(){
         var availHeight = window.innerHeight,
             screenHeight = (window.innerWidth>window.innerHeight)?window.screen.width:window.screen.height,
+            availScreenHeight = (window.innerWidth>window.innerHeight)?window.screen.availWidth:window.screen.availHeight,
             diff = screenHeight-availHeight;
         
         var viewport = document.getElementById('viewport'),
@@ -67,13 +69,11 @@
         }
         viewport.setAttribute('content', viewport_content);
 
-        this.elem.style.height = screenHeight+"px";
-        
         var showSlide = (diff > 50)?true:false;
         
-        if(showSlide && !this.visible){
+        if(showSlide){
             this.show();
-        } else if(!showSlide && this.visible){
+        } else if(!showSlide){
             this.hide();
         }
         
