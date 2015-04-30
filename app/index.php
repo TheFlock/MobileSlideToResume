@@ -15,7 +15,7 @@
         <meta itemprop="name" content="" />
         <title>Mobile Slide To Unlock</title>
         
-        <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+        <meta id="viewport" name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
         
         <script>
 

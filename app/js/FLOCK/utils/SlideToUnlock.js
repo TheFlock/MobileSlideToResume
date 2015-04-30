@@ -42,7 +42,12 @@
     function hide(){
         console.log('hide');
         this.visible = false; 
-        this.body.addClass('fill');
+        //this.body.addClass('fill');
+        this.body.css('height', (window.innerWidth>window.innerHeight)?window.screen.width:window.screen.height);
+        this.body[0].scrollTop = 0;
+
+        console.log(window.screen, window);
+
         // this.elem.style.visibility = "hidden";  
         this.elem.style.display = "none";  
     }
@@ -52,6 +57,16 @@
             screenHeight = (window.innerWidth>window.innerHeight)?window.screen.width:window.screen.height,
             diff = screenHeight-availHeight;
         
+        var viewport = document.getElementById('viewport'),
+            viewport_content = viewport.getAttribute('content');
+
+        if (window.innerWidth > window.innerHeight) {
+            viewport_content = 'height=device-width,' + viewport_content.replace(/height=device-height,|height=device-width,/, '');
+        } else {
+            viewport_content = 'height=device-height,' + viewport_content.replace(/height=device-height,|height=device-width,/, '');
+        }
+        viewport.setAttribute('content', viewport_content);
+
         this.elem.style.height = screenHeight+"px";
         
         var showSlide = (diff > 50)?true:false;
